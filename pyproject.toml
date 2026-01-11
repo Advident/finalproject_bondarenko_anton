@@ -1,0 +1,38 @@
+[project]
+name = "finalproject_bondarenko_anton"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.13"
+authors = [
+    { name = "Anton Bondarenko", email = "advident@gmail.com" }
+]
+
+# Обычные (runtime) зависимости проекта
+dependencies = [
+    "prettytable>=3.9.0",
+    "requests>=2.32.5",
+]
+
+[project.optional-dependencies]
+# Только dev-зависимости (линтеры, тесты и т.п.)
+dev = [
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+project = "valutatrade_hub.cli.interface:main"
+
+[tool.poetry]
+packages = [{ include = "valutatrade_hub" }]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]

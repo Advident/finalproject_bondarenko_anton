@@ -1,0 +1,53 @@
+[
+  {
+    "id": "BTC_USD_2026-01-11T07:21:55Z",
+    "from_currency": "BTC",
+    "to_currency": "USD",
+    "rate": 90572.0,
+    "timestamp": "2026-01-11T07:21:55Z",
+    "source": "CoinGecko",
+    "meta": {
+      "request_ms": 1239,
+      "status_code": 200,
+      "etag": "W/\"9f9aa4850abd57fcac48771a58700499\"",
+      "raw": {
+        "ids": "bitcoin,ethereum,solana",
+        "vs": "usd"
+      }
+    }
+  },
+  {
+    "id": "ETH_USD_2026-01-11T07:21:55Z",
+    "from_currency": "ETH",
+    "to_currency": "USD",
+    "rate": 3091.24,
+    "timestamp": "2026-01-11T07:21:55Z",
+    "source": "CoinGecko",
+    "meta": {
+      "request_ms": 1239,
+      "status_code": 200,
+      "etag": "W/\"9f9aa4850abd57fcac48771a58700499\"",
+      "raw": {
+        "ids": "bitcoin,ethereum,solana",
+        "vs": "usd"
+      }
+    }
+  },
+  {
+    "id": "SOL_USD_2026-01-11T07:21:55Z",
+    "from_currency": "SOL",
+    "to_currency": "USD",
+    "rate": 135.88,
+    "timestamp": "2026-01-11T07:21:55Z",
+    "source": "CoinGecko",
+    "meta": {
+      "request_ms": 1239,
+      "status_code": 200,
+      "etag": "W/\"9f9aa4850abd57fcac48771a58700499\"",
+      "raw": {
+        "ids": "bitcoin,ethereum,solana",
+        "vs": "usd"
+      }
+    }
+  }
+]
