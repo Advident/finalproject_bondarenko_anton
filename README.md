@@ -88,3 +88,7 @@ export EXCHANGERATE_API_KEY="ВАШ_КЛЮЧ"
 
 **Выход из CLI:**
 - exit
+
+## Демонстрация процесса (asciinema)
+
+[![asciinema](https://asciinema.org/a/Ejcp1Kq5BxGA9XIo)](https://asciinema.org/a/Ejcp1Kq5BxGA9XIo)
