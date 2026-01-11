@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from .currencies import get_currency
@@ -44,9 +44,13 @@ def save_json(path: Path, data) -> None:
 
 
 def now_iso() -> str:
-    # Текущее время ISO
-    return datetime.now().isoformat(timespec="seconds")
-
+    # Текущее время в UTC (ISO + Z)
+    return (
+        datetime.now(timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
 
 def validate_currency_code(code: str) -> str:
     # Проверяем через реестр валют
@@ -71,14 +75,24 @@ def validate_amount(amount) -> float:
 
 
 def parse_iso(dt_str: str) -> datetime:
-    # Парсим ISO
-    return datetime.fromisoformat(dt_str)
+    # Парсим ISO, поддерживаем суффикс Z (UTC)
+    s = str(dt_str).strip()
+    if s.endswith("Z"):
+        s = s[:-1] + "+00:00"
+
+    dt = datetime.fromisoformat(s)
+
+    # Если пришло naive-время — считаем его UTC
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+
+    return dt
 
 
 def is_rate_fresh(updated_at_iso: str, ttl_seconds: int) -> bool:
-    # Проверка TTL
+    # Проверка TTL (в UTC)
     dt = parse_iso(updated_at_iso)
-    age = (datetime.now() - dt).total_seconds()
+    age = (datetime.now(timezone.utc) - dt).total_seconds()
     return age <= ttl_seconds
 
 
