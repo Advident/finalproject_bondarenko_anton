@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{ include = "valutatrade_hub" }]
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = ">=3.12,<3.14"
 prettytable = ">=3.9.0"
 requests = ">=2.32.5"
 
